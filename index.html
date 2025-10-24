@@ -1,216 +1,585 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="antialiased">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>POC Shipping | UAE Shipping & Logistics</title>
-  <meta name="description" content="POC Shipping - Reliable shipping & logistics solutions throughout the UAE. Cargo Shipping, Import/Export, Customs Clearance.">
-  <!-- Tailwind CSS CDN -->
+  <!-- Primary meta -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>POC Shipping & Logistics — Global Transport & Secure Delivery</title>
+  <meta name="description" content="POC Shipping & Logistics — Global land, sea & air freight, packers & movers and custom logistics solutions from Deira, Dubai. 100% Safe Delivery. Zero Delay. Fast & On Time." />
+  <meta name="keywords" content="POC Shipping, logistics, freight, sea freight, air freight, land transport, Dubai, packers & movers, customs clearance" />
+  <meta name="author" content="POC Shipping & Logistics" />
+
+  <!-- Tailwind CDN + config (using class-based dark mode) -->
+  <script>
+    tailwind = true;
+    tailwindConfig = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            pocnavy: '#002B5C',
+            pocaccent: '#00A4A8',
+            pocgold: '#D9A441'
+          },
+          boxShadow: {
+            'lift-lg': '0 10px 30px rgba(2,6,23,0.25)'
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome for social icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+  <!-- Custom small stylesheet (for a couple of helper rules) -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Favicons / placeholders -->
+  <link rel="icon" href="images/favicon.png" />
+
+  <style>
+    /* Minimal inline rules to complement Tailwind for hero overlay & images */
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    .hero-bg {
+      background-image: url('images/image-hero.jpg'); /* placeholder: image-hero.jpg */
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    /* mobile video fallback idea: user can replace with video tag */
+    .reveal { opacity: 0; transform: translateY(18px); transition: all 600ms cubic-bezier(.2,.9,.3,1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="text-gray-800 bg-white dark:bg-gray-900 dark:text-gray-100">
 
-  <!-- Navigation Bar -->
-  <nav class="bg-white shadow sticky top-0 z-30">
-    <div class="container mx-auto flex items-center justify-between py-4 px-4">
-      <div class="text-2xl font-bold text-blue-700">POC Shipping</div>
-      <ul class="hidden md:flex space-x-8 font-medium tracking-wide">
-        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
-        <li><a href="#about" class="hover:text-blue-600">About Us</a></li>
-        <li><a href="#services" class="hover:text-blue-600">Services</a></li>
-        <li><a href="#enquiry" class="hover:text-blue-600">Enquiry</a></li>
-        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
-      </ul>
-      <button class="md:hidden text-2xl" id="nav-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="md:hidden hidden px-4 pb-4">
-      <ul class="flex flex-col space-y-2 font-medium">
-        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
-        <li><a href="#about" class="hover:text-blue-600">About Us</a></li>
-        <li><a href="#services" class="hover:text-blue-600">Services</a></li>
-        <li><a href="#enquiry" class="hover:text-blue-600">Enquiry</a></li>
-        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <!-- Sticky Header / Nav -->
+  <header class="fixed inset-x-0 top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex items-center gap-4">
+          <a href="#home" class="flex items-center gap-3">
+            <!-- Placeholder logo -->
+            <div class="w-10 h-10 rounded-md bg-pocnavy flex items-center justify-center text-white font-bold">POC</div>
+            <span class="text-lg font-semibold text-pocnavy dark:text-white">POC Shipping</span>
+          </a>
+        </div>
 
-  <!-- Hero / Landing Page -->
-  <section id="home" class="bg-blue-700 text-white py-16">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-      <div class="md:w-1/2">
-        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Shipping Made Simple, Reliable, & Fast</h1>
-        <p class="mb-6 text-lg md:text-xl">Your trusted partner for cargo shipping and logistics in the UAE.</p>
-        <a href="#enquiry" class="inline-block bg-white text-blue-700 font-bold px-6 py-3 rounded shadow hover:bg-blue-100 transition">Get a Quote</a>
-      </div>
-      <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Shipping hero" class="rounded-lg shadow-lg w-full max-w-md">
-      </div>
-    </div>
-  </section>
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="nav-link text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-pocnavy">Home</a>
+          <a href="#services" class="nav-link text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-pocnavy">Services</a>
+          <a href="#why" class="nav-link text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-pocnavy">Why Us</a>
+          <a href="#contact" class="nav-link text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-pocnavy">Contact</a>
+          <!-- Dark mode toggle -->
+          <button id="dark-toggle" class="ml-2 p-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-200 hover:opacity-90" aria-label="Toggle dark mode">
+            <!-- moon / sun svg -->
+            <svg id="dark-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-11.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 4.66l-.71-.71M4.05 4.05l-.71-.71" />
+            </svg>
+          </button>
+        </div>
 
-  <!-- About Us Section -->
-  <section id="about" class="py-16 bg-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4 text-blue-700">About Us</h2>
-      <p class="max-w-2xl mx-auto mb-6 text-lg">
-        <strong>POC Shipping</strong> is a leading shipping and logistics company based in the UAE, dedicated to providing efficient, reliable, and cost-effective solutions for our clients. With years of expertise in the shipping industry and a strong local presence, we manage cargo shipping, import & export, and customs clearance with unmatched professionalism.
-      </p>
-      <img src="https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=600&q=80" alt="About POC Shipping" class="mx-auto rounded shadow-lg w-full max-w-xl">
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" aria-label="Open menu" class="p-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
+            <svg id="mobile-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+            </svg>
+            <svg id="mobile-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </nav>
     </div>
-  </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-10 text-blue-700">Our Services</h2>
-      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-        <!-- Service Card 1 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-center">
-          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Cargo Shipping" class="w-24 h-24 mx-auto mb-4 rounded">
-          <h3 class="text-xl font-bold mb-2">Cargo Shipping</h3>
-          <p>Global and local cargo shipping solutions for all sizes, including sea, air, and land transport.</p>
-        </div>
-        <!-- Service Card 2 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-center">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Logistics Solutions" class="w-24 h-24 mx-auto mb-4 rounded">
-          <h3 class="text-xl font-bold mb-2">Logistics Solutions</h3>
-          <p>End-to-end logistics management, warehousing, and distribution for seamless supply chain operations.</p>
-        </div>
-        <!-- Service Card 3 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-center">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Import & Export" class="w-24 h-24 mx-auto mb-4 rounded">
-          <h3 class="text-xl font-bold mb-2">Import & Export</h3>
-          <p>Expert support for import & export documentation, compliance, and international shipments.</p>
-        </div>
-        <!-- Service Card 4 -->
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition text-center">
-          <img src="https://images.unsplash.com/photo-1501556424050-d4816356b73c?auto=format&fit=crop&w=400&q=80" alt="Customs Clearance" class="w-24 h-24 mx-auto mb-4 rounded">
-          <h3 class="text-xl font-bold mb-2">Customs Clearance</h3>
-          <p>Fast, hassle-free customs clearance to keep your shipments moving without delays.</p>
-        </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 hidden">
+      <div class="px-4 py-4 space-y-2">
+        <a href="#home" class="block py-2 font-medium">Home</a>
+        <a href="#services" class="block py-2 font-medium">Services</a>
+        <a href="#why" class="block py-2 font-medium">Why Us</a>
+        <a href="#contact" class="block py-2 font-medium">Contact</a>
+        <button id="mobile-dark-toggle" class="w-full text-left py-2 font-medium">Toggle Dark</button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- Enquiry Form Section -->
-  <section id="enquiry" class="py-16 bg-white">
-    <div class="container mx-auto px-4 max-w-lg">
-      <h2 class="text-3xl font-bold mb-6 text-blue-700 text-center">Enquiry Form</h2>
-      <form id="enquiryForm" class="space-y-6 bg-gray-50 p-8 rounded-lg shadow">
-        <div>
-          <label for="name" class="block text-sm font-medium mb-1">Name <span class="text-red-500">*</span></label>
-          <input type="text" id="name" name="name" class="w-full border rounded p-2" required>
-        </div>
-        <div>
-          <label for="email" class="block text-sm font-medium mb-1">Email <span class="text-red-500">*</span></label>
-          <input type="email" id="email" name="email" class="w-full border rounded p-2" required>
-        </div>
-        <div>
-          <label for="phone" class="block text-sm font-medium mb-1">Phone <span class="text-red-500">*</span></label>
-          <input type="tel" id="phone" name="phone" class="w-full border rounded p-2" required>
-        </div>
-        <div>
-          <label for="service" class="block text-sm font-medium mb-1">Service Required <span class="text-red-500">*</span></label>
-          <select id="service" name="service" class="w-full border rounded p-2" required>
-            <option value="">Select Service</option>
-            <option value="Cargo Shipping">Cargo Shipping</option>
-            <option value="Logistics Solutions">Logistics Solutions</option>
-            <option value="Import & Export">Import & Export</option>
-            <option value="Customs Clearance">Customs Clearance</option>
-          </select>
-        </div>
-        <div>
-          <label for="message" class="block text-sm font-medium mb-1">Message <span class="text-red-500">*</span></label>
-          <textarea id="message" name="message" rows="4" class="w-full border rounded p-2" required></textarea>
-        </div>
-        <button type="submit" class="w-full bg-blue-700 text-white font-bold py-2 rounded hover:bg-blue-800">Submit</button>
-        <div id="formSuccess" class="hidden text-green-600 text-center mt-4">Thank you! Your enquiry has been sent.</div>
-      </form>
-    </div>
-  </section>
+  <main id="home" class="pt-20">
+    <!-- Hero Section -->
+    <!-- hero-bg uses placeholder image 'images/image-hero.jpg' -->
+    <section class="hero-bg relative h-[72vh] min-h-[520px] flex items-center" aria-label="Hero section">
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/40"></div>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-6 text-blue-700 text-center">Contact Us</h2>
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-        <div class="md:w-1/2 bg-white p-6 rounded-lg shadow mb-8 md:mb-0">
-          <h3 class="text-xl font-bold mb-2">UAE Office</h3>
-          <p>Al Quoz, Dubai, UAE</p>
-          <p class="mt-2"><i class="fas fa-phone text-blue-700"></i> <a href="tel:+971501234567" class="hover:text-blue-600">+971 50 123 4567</a></p>
-          <p class="mt-2"><i class="fas fa-envelope text-blue-700"></i> <a href="mailto:info@pocshipping.com" class="hover:text-blue-600">info@pocshipping.com</a></p>
-        </div>
-        <div class="md:w-1/2 flex items-center justify-center">
-          <!-- Google Map Embed Placeholder -->
-          <div class="w-full h-64 bg-gray-300 rounded-lg flex items-center justify-center text-gray-600">
-            <span><i class="fas fa-map-marker-alt text-3xl mr-2"></i>Google Map Embed</span>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div class="text-white">
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-md">Between departure and destination, there is POC</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-xl">Reliable global freight & logistics solutions — land, sea, air. 100% Safe Delivery • Zero Delay • Fast & On Time.</p>
+
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#contact" class="inline-flex items-center px-6 py-3 rounded-md bg-pocaccent hover:bg-teal-500 text-white font-semibold shadow-md transition">
+                Get Your Free Quote
+              </a>
+              <a href="#services" class="inline-flex items-center px-6 py-3 rounded-md bg-white/10 border border-white/20 text-white hover:bg-white/20 transition">
+                Our Services
+              </a>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-white/90">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">💼</div>
+                <div>
+                  <div class="text-sm font-semibold">Since 2012</div>
+                  <div class="text-xs opacity-80">Privately Owned</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">🌐</div>
+                <div>
+                  <div class="text-sm font-semibold">Global Network</div>
+                  <div class="text-xs opacity-80">Partners worldwide</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero image / placeholder on right (hidden on small screens) -->
+          <div class="hidden lg:block">
+            <img src="images/hero-side.jpg" alt="Cargo and logistics" class="rounded-xl shadow-lg" />
+            <!-- placeholder: images/hero-side.jpg -->
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Services Section -->
+    <!-- Services: five core services displayed as cards -->
+    <section id="services" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="text-center mb-10 reveal">
+        <h2 class="text-2xl md:text-3xl font-bold text-pocnavy">Our Services</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Comprehensive freight & logistics solutions tailor-made for your cargo — worldwide.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Land Transport -->
+        <article class="service-card reveal rounded-xl p-6 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:shadow-lift-lg transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-lg bg-pocnavy text-white">
+              <!-- truck SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17a1 1 0 11-2 0 1 1 0 012 0zm8 0a1 1 0 11-2 0 1 1 0 012 0zM3 7h13v7H3zM16 7l4 4v3" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-pocnavy dark:text-white">Land Transport</h3>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Door-to-door trucking solutions across GCC & continental routes with real-time tracking and secure handling.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sea Freight -->
+        <article class="service-card reveal rounded-xl p-6 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:shadow-lift-lg transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-lg bg-pocnavy text-white">
+              <!-- ship svg -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2 4-1 4 1 4 2 2 2v4H3v-6z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-pocnavy dark:text-white">Sea Freight</h3>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Full-container (FCL) and less-than-container (LCL) shipments with competitive transit times and secure stowage.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Air Freight -->
+        <article class="service-card reveal rounded-xl p-6 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:shadow-lift-lg transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-lg bg-pocnavy text-white">
+              <!-- airplane -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 12l9-3 9 3-9 3-9-3zM11 21V3" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-pocnavy dark:text-white">Air Freight</h3>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Urgent shipments supported by major carriers — expedited, charter and regular schedules.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Logistics Solutions -->
+        <article class="service-card reveal rounded-xl p-6 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:shadow-lift-lg transition transform hover:-translate-y-1">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-lg bg-pocnavy text-white">
+              <!-- boxes -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7h6v6H3zM15 3h6v6h-6zM9 15h6v6H9z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-pocnavy dark:text-white">Logistics Solutions</h3>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Supply chain optimisation, warehousing, distribution and tailored 3PL services for all industries.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Packers & Movers + Custom Solutions -->
+        <article class="service-card reveal rounded-xl p-6 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:shadow-lift-lg transition transform hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
+          <div class="flex items-start gap-4">
+            <div class="p-3 rounded-lg bg-pocnavy text-white">
+              <!-- package -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-pocnavy dark:text-white">Packers & Movers & Custom Solutions</h3>
+              <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Expert packaging, fragile handling, door moves and bespoke logistics plans to match your needs.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why" class="bg-gray-50 dark:bg-gray-800 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 reveal">
+          <h2 class="text-2xl md:text-3xl font-bold text-pocnavy">Why Choose POC</h2>
+          <p class="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Our service pillars reflect our commitment to deliver your cargo safely and on time.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="reveal bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-100 dark:border-gray-700">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-md bg-pocnavy text-white">
+                <!-- shield -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pocnavy dark:text-white">100% Safe Delivery</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Stringent handling protocols and insured shipments for peace of mind.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-100 dark:border-gray-700">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-md bg-pocnavy text-white">
+                <!-- clock -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3M12 2a10 10 0 100 20 10 10 0 000-20z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pocnavy dark:text-white">Zero Delay</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Optimised routes and proactive monitoring to keep schedules on track.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-100 dark:border-gray-700">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-md bg-pocnavy text-white">
+                <!-- lightning -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pocnavy dark:text-white">Fast & On Time</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Time-critical solutions backed by carrier partnerships and priority services.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal bg-white dark:bg-gray-900 p-6 rounded-lg border border-gray-100 dark:border-gray-700">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-md bg-pocnavy text-white">
+                <!-- headset -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12v1a9 9 0 009 9 9 9 0 009-9v-1" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-pocnavy dark:text-white">24/7 Support</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Dedicated account teams and global agents for continuous coverage.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <!-- image left -->
+        <div class="reveal">
+          <img src="images/about-warehouse.jpg" alt="POC global logistics" class="rounded-xl shadow-lg" />
+          <!-- placeholder: images/about-warehouse.jpg -->
+        </div>
+
+        <!-- text right -->
+        <div class="reveal">
+          <h2 class="text-2xl md:text-3xl font-bold text-pocnavy">About POC Shipping & Transport Co. LLC</h2>
+          <p class="mt-4 text-gray-700 dark:text-gray-300">POC is a privately owned logistics provider headquartered in Deira, Dubai (PO Box 283525). Since our founding, we have built a global network of partners and agents to deliver fast, secure and customised freight solutions.</p>
+          <p class="mt-4 text-gray-700 dark:text-gray-300">Our mission is to connect businesses and customers reliably — handling every shipment as if it were our own. We combine industry expertise with modern tracking and logistics planning to ensure 100% Safe Delivery and Zero Delay.</p>
+
+          <div class="mt-6 flex gap-4">
+            <a href="#contact" class="px-5 py-3 rounded-md bg-pocnavy text-white font-semibold hover:opacity-95">Request a Quote</a>
+            <a href="#services" class="px-5 py-3 rounded-md border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200">Explore Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="bg-gray-50 dark:bg-gray-900 py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8 reveal">
+          <h2 class="text-2xl md:text-3xl font-bold text-pocnavy">Frequently Asked Questions</h2>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">Answers to common queries about international shipping, documentation and customs.</p>
+        </div>
+
+        <div class="space-y-3">
+          <!-- Accordion item 1 -->
+          <details class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700 reveal">
+            <summary class="cursor-pointer font-semibold text-pocnavy">What documents are required for international shipping?</summary>
+            <div class="mt-2 text-gray-600 dark:text-gray-300">
+              Typical documents include commercial invoice, packing list, airway bill / bill of lading, and any export/import licences. Requirements vary by commodity and country — POC will advise required paperwork during quote and booking.
+            </div>
+          </details>
+
+          <!-- Accordion item 2 -->
+          <details class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700 reveal">
+            <summary class="cursor-pointer font-semibold text-pocnavy">How long will it take?</summary>
+            <div class="mt-2 text-gray-600 dark:text-gray-300">
+              Transit times depend on mode and routing. Air Freight typically ranges from 1–7 days; Sea Freight varies from a few days to several weeks depending on origin/destination; Land transit times vary by distance & customs. We provide estimated transit times with every quote.
+            </div>
+          </details>
+
+          <!-- Accordion item 3 -->
+          <details class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700 reveal">
+            <summary class="cursor-pointer font-semibold text-pocnavy">Can you handle customs clearance?</summary>
+            <div class="mt-2 text-gray-600 dark:text-gray-300">
+              Yes — POC manages customs clearance, duties and tax paperwork through our network of licensed brokers to ensure a smooth and compliant import/export process.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Get Quote -->
+    <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Contact Form -->
+        <div class="reveal bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+          <h3 class="text-xl font-bold text-pocnavy">Get a Free Quote</h3>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">Tell us about your shipment and we'll respond promptly.</p>
+
+          <form class="mt-6 space-y-4" action="#" onsubmit="event.preventDefault(); alert('Form submit is disabled in this demo.');">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Name</label>
+              <input id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pocaccent" placeholder="Your full name" />
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Email</label>
+                <input id="email" name="email" type="email" required class="mt-1 block w-full rounded-md border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pocaccent" placeholder="you@example.com" />
+              </div>
+
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Phone</label>
+                <input id="phone" name="phone" required class="mt-1 block w-full rounded-md border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pocaccent" placeholder="+971 50 000 0000" />
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Message / Cargo details</label>
+              <textarea id="message" name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pocaccent" placeholder="E.g., dimensions, weight, origin, destination, preferred transit times"></textarea>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <button type="submit" class="px-6 py-3 rounded-md bg-pocnavy text-white font-semibold hover:opacity-95">Send</button>
+              <button type="reset" class="px-4 py-2 rounded-md border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200">Reset</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Contact details -->
+        <aside class="reveal bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+          <h4 class="text-lg font-semibold text-pocnavy">Contact Information</h4>
+          <p class="mt-3 text-gray-600 dark:text-gray-300">PO Box 283525, Deira, Dubai, UAE</p>
+          <p class="mt-1 text-gray-600 dark:text-gray-300">Email: <a href="mailto:info@pocshipping.com" class="text-pocnavy dark:text-pocaccent font-medium">info@pocshipping.com</a></p>
+          <p class="mt-1 text-gray-600 dark:text-gray-300">Phone: <span class="font-medium">+1</span></p>
+
+          <div class="mt-6">
+            <h5 class="font-semibold text-pocnavy">Office Hours</h5>
+            <p class="text-gray-600 dark:text-gray-300 mt-1">Mon - Sun: 08:00 - 20:00 (24/7 Support available)</p>
+          </div>
+
+          <div class="mt-6">
+            <h5 class="font-semibold text-pocnavy">Quick Links</h5>
+            <ul class="mt-2 space-y-2 text-sm">
+              <li><a href="#services" class="text-gray-600 dark:text-gray-300 hover:text-pocnavy">Services</a></li>
+              <li><a href="#faq" class="text-gray-600 dark:text-gray-300 hover:text-pocnavy">FAQ</a></li>
+              <li><a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-pocnavy">About Us</a></li>
+            </ul>
+          </div>
+
+          <div class="mt-6 flex items-center gap-3">
+            <!-- social placeholders -->
+            <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">f</a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">in</a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">🐦</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="hidden fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-pocnavy text-white flex items-center justify-center shadow-lg hover:scale-105 transition" aria-label="Back to top">
+    ↑
+  </button>
 
   <!-- Footer -->
-  <footer class="bg-blue-900 text-gray-100 py-8 mt-16">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row md:justify-between items-center">
-      <div class="mb-4 md:mb-0">&copy; 2025 POC Shipping. All rights reserved.</div>
-      <ul class="flex space-x-6 mb-4 md:mb-0">
-        <li><a href="#home" class="hover:text-blue-300">Home</a></li>
-        <li><a href="#about" class="hover:text-blue-300">About</a></li>
-        <li><a href="#services" class="hover:text-blue-300">Services</a></li>
-        <li><a href="#enquiry" class="hover:text-blue-300">Enquiry</a></li>
-        <li><a href="#contact" class="hover:text-blue-300">Contact</a></li>
-      </ul>
-      <div class="flex space-x-4">
-        <a href="#" class="hover:text-blue-300"><i class="fab fa-facebook fa-lg"></i></a>
-        <a href="#" class="hover:text-blue-300"><i class="fab fa-instagram fa-lg"></i></a>
-        <a href="#" class="hover:text-blue-300"><i class="fab fa-linkedin fa-lg"></i></a>
+  <footer class="bg-pocnavy text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-white text-pocnavy rounded-md flex items-center justify-center font-bold">POC</div>
+          <div>
+            <div class="font-semibold">POC Shipping & Transport Co. LLC</div>
+            <div class="text-sm opacity-80">PO Box 283525, Deira, Dubai, UAE</div>
+          </div>
+        </div>
+
+        <div class="text-sm opacity-90">© 2025 POC Shipping & Transport Co. LLC — All Rights Reserved</div>
+
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-white/90 hover:underline text-sm">Privacy</a>
+          <a href="#" class="text-white/90 hover:underline text-sm">Legal</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Responsive Navbar JS & Form Validation -->
+  <!-- JavaScript for interactivity -->
   <script>
-    // Navbar toggle
-    const navToggle = document.getElementById('nav-toggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    navToggle.addEventListener('click', () => {
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOpen = document.getElementById('mobile-open');
+    const mobileClose = document.getElementById('mobile-close');
+    mobileBtn?.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+      mobileOpen.classList.toggle('hidden');
+      mobileClose.classList.toggle('hidden');
     });
 
-    // Enquiry Form Validation & Placeholder Submission
-    const enquiryForm = document.getElementById('enquiryForm');
-    const formSuccess = document.getElementById('formSuccess');
+    // Dark mode toggle
+    const darkToggle = document.getElementById('dark-toggle');
+    const mobileDarkToggle = document.getElementById('mobile-dark-toggle');
+    function setDark(enabled) {
+      if (enabled) document.documentElement.classList.add('dark');
+      else document.documentElement.classList.remove('dark');
+      localStorage.setItem('poc-dark', enabled ? '1' : '0');
+    }
+    // initialize
+    const saved = localStorage.getItem('poc-dark');
+    if (saved === null) {
+      // prefer system
+      setDark(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    } else {
+      setDark(saved === '1');
+    }
+    darkToggle?.addEventListener('click', () => setDark(!document.documentElement.classList.contains('dark')));
+    mobileDarkToggle?.addEventListener('click', () => {
+      setDark(!document.documentElement.classList.contains('dark'));
+      mobileMenu.classList.add('hidden');
+      mobileOpen.classList.remove('hidden');
+      mobileClose.classList.add('hidden');
+    });
 
-    enquiryForm.addEventListener('submit', function(e) {
-      e.preventDefault();
+    // Back to top button
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) backToTop.classList.remove('hidden'); else backToTop.classList.add('hidden');
+    });
+    backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-      // Simple validation for required fields
-      let valid = true;
-      enquiryForm.querySelectorAll('[required]').forEach(field => {
-        if (!field.value.trim()) {
-          field.classList.add('border-red-500');
-          valid = false;
-        } else {
-          field.classList.remove('border-red-500');
+    // Smooth scroll for nav links (anchors)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        // allow default for external or if same-page handled
+        const href = a.getAttribute('href');
+        if (!href || href === '#' || href.startsWith('http')) return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // close mobile menu if open
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            mobileOpen.classList.remove('hidden');
+            mobileClose.classList.add('hidden');
+          }
         }
       });
-
-      if (!valid) return;
-
-      // Placeholder backend - show success message
-      formSuccess.classList.remove('hidden');
-      enquiryForm.reset();
-
-      setTimeout(() => {
-        formSuccess.classList.add('hidden');
-      }, 4000);
     });
+
+    // Reveal animations using IntersectionObserver
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+
+    // Service card micro-interaction: change icon bg on hover (using delegated listener)
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const icon = card.querySelector('div > div:first-child') || card.querySelector('svg');
+        card.classList.add('shadow-lg');
+      });
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('shadow-lg');
+      });
+    });
+
+    // Accordion <details> polyfill for accessibility: ensure only keyboard triggers open via space/enter
+    document.querySelectorAll('details').forEach(d => {
+      const summary = d.querySelector('summary');
+      summary.setAttribute('role', 'button');
+      summary.setAttribute('tabindex', '0');
+      summary.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          d.open = !d.open;
+        }
+      });
+    });
+
   </script>
 </body>
 </html>
