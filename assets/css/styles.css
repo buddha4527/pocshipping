@@ -1,1 +1,25 @@
+/* Extra custom styles for POC Shipping (minimal, Tailwind does most work) */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
 
+.nav-bg {
+  background: #0A1A2F;
+}
+
+/* Example: Animate button pulse for hero CTA */
+.hero-cta {
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #FF7A0033; }
+  70% { box-shadow: 0 0 0 8px #FF7A0033; }
+  100% { box-shadow: 0 0 0 0 #FF7A0033; }
+}
+
+/* Responsive fixes for grids */
+@media (max-width: 768px) {
+  .footer-icons { justify-content: center !important; }
+}
