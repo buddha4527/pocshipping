@@ -33,3 +33,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+// Hamburger menu toggle logic
+document.addEventListener("DOMContentLoaded", function () {
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("nav-menu");
+  if (btn && menu) {
+    btn.addEventListener("click", function () {
+      menu.classList.toggle("hidden");
+      menu.classList.toggle("flex");
+    });
+    // Optional: Close menu when clicking a link on mobile
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function () {
+        if (window.innerWidth < 768) {
+          menu.classList.add("hidden");
+          menu.classList.remove("flex");
+        }
+      });
+    });
+  }
+});
