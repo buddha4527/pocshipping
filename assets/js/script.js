@@ -197,4 +197,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // AOS
   initAOS();
+
+  // Hero buttons → open correct form
+const heroShippingBtn = document.getElementById("heroShippingBtn");
+const heroMoversBtn = document.getElementById("heroMoversBtn");
+
+if (heroShippingBtn) {
+  heroShippingBtn.addEventListener("click", function () {
+    document.getElementById("showShipping")?.click();
+  });
+}
+
+if (heroMoversBtn) {
+  heroMoversBtn.addEventListener("click", function () {
+    document.getElementById("showMovers")?.click();
+  });
+}
+
 });
