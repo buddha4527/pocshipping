@@ -1,24 +1,28 @@
 // assets/js/script.js
-// Combined site JS: WhatsApp handlers, Shipping/Movers forms, mobile menu, smooth scroll, AOS init.
+const WHATSAPP_NUMBER = '971503469650'; // change here if needed
+const HEADER_OFFSET = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 72;
 
-// ----- Configuration -----
-const WHATSAPP_NUMBER = '971503469650'; // no + sign. Change here if needed.
-
-// ----- Helper: open WhatsApp with encoded message -----
+// helpers
 function openWhatsAppMessage(message) {
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  // use _blank to open new tab / app where available
   window.open(url, '_blank', 'noopener');
 }
 
-// ----- Existing handler: generic WhatsApp form (index + contact pages) -----
+function scrollToElementWithOffset(el) {
+  if (!el) return;
+  const rect = el.getBoundingClientRect();
+  const top = window.scrollY + rect.top - HEADER_OFFSET - 12; // extra 12px breathing room
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+/* ------------------------
+   Existing generic WhatsApp form
+   ------------------------ */
 function handleWhatsAppForm(formId) {
   const form = document.getElementById(formId);
   if (!form) return;
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-
-    // Safely read fields (guard if any missing)
     const name = form.name ? form.name.value.trim() : '';
     const whatsapp = form.whatsapp ? form.whatsapp.value.trim() : '';
     const pickup = form.pickup ? form.pickup.value.trim() : '';
@@ -38,33 +42,53 @@ function handleWhatsAppForm(formId) {
   });
 }
 
-// ----- New: Shipping & Packers/Movers forms and toggle -----
+/* ------------------------
+   Dual forms (Shipping / Movers)
+   ------------------------ */
 function initDualForms() {
   const shippingBtn = document.getElementById('showShipping');
   const moversBtn = document.getElementById('showMovers');
   const shippingForm = document.getElementById('shippingForm');
   const moversForm = document.getElementById('moversForm');
 
-  // if forms/buttons are not present, silently return
-  if (!shippingForm || !moversForm || !shippingBtn || !moversBtn) return;
+  if (!shippingBtn || !moversBtn || !shippingForm || !moversForm) return;
 
   function showForm(which) {
     if (which === 'shipping') {
       shippingForm.classList.remove('hidden');
       moversForm.classList.add('hidden');
-      shippingBtn.classList.add('opacity-100');
-      moversBtn.classList.remove('opacity-100');
     } else {
       moversForm.classList.remove('hidden');
       shippingForm.classList.add('hidden');
-      moversBtn.classList.add('opacity-100');
-      shippingBtn.classList.remove('opacity-100');
     }
   }
 
-  // attach button listeners
-  shippingBtn.addEventListener('click', function () { showForm('shipping'); });
-  moversBtn.addEventListener('click', function () { showForm('movers'); });
+  // show based on button + scroll with offset
+  shippingBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    showForm('shipping');
+    // scroll to the form container (use the form itself)
+    scrollToElementWithOffset(shippingForm);
+  });
+
+  moversBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    showForm('movers');
+    scrollToElementWithOffset(moversForm);
+  });
+
+  // Hero buttons (one click) - safe if they exist
+  document.getElementById('heroShippingBtn')?.addEventListener('click', function (e) {
+    e.preventDefault();
+    // show + scroll
+    showForm('shipping');
+    scrollToElementWithOffset(shippingForm);
+  });
+  document.getElementById('heroMoversBtn')?.addEventListener('click', function (e) {
+    e.preventDefault();
+    showForm('movers');
+    scrollToElementWithOffset(moversForm);
+  });
 
   // shipping form submit
   shippingForm.addEventListener('submit', function (e) {
@@ -100,7 +124,7 @@ function initDualForms() {
     openWhatsAppMessage(msg);
   });
 
-  // movers form submit
+  // movers submit
   moversForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const data = {
@@ -132,86 +156,75 @@ function initDualForms() {
   showForm('shipping');
 }
 
-// ----- Mobile hamburger menu toggle -----
+/* ------------------------
+   Mobile menu, smooth scroll, AOS init
+   ------------------------ */
 function initMobileMenu() {
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('nav-menu');
   if (!btn || !menu) return;
-
   btn.addEventListener('click', function () {
     menu.classList.toggle('hidden');
     menu.classList.toggle('flex');
-    // update aria-expanded if present
-    if (btn.getAttribute) {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-    }
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
   });
-
-  // Optional: close on link click (mobile)
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function () {
       if (window.innerWidth < 768) {
         menu.classList.add('hidden');
         menu.classList.remove('flex');
-        if (btn.getAttribute) btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-expanded', 'false');
       }
     });
   });
 }
 
-// ----- Smooth scrolling for anchor links -----
 function initSmoothScroll() {
+  // Keep anchors but adjust to offset when clicked
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function (e) {
-      const targetSelector = this.getAttribute('href');
-      if (!targetSelector || targetSelector === '#') return;
-      const target = document.querySelector(targetSelector);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      scrollToElementWithOffset(target);
     });
   });
 }
 
-// ----- AOS init (if AOS is loaded) -----
 function initAOS() {
   if (window.AOS && typeof AOS.init === 'function') {
     AOS.init({ once: true });
   }
 }
 
-// ----- DOM ready -----
+/* ------------------------
+   Simple hero carousel auto slide (2 images)
+   ------------------------ */
+function initHeroCarousel() {
+  const carousel = document.getElementById('heroCarousel');
+  if (!carousel) return;
+  let heroIndex = 0;
+  setInterval(() => {
+    heroIndex = (heroIndex + 1) % 2;
+    carousel.style.transform = `translateX(-${heroIndex * 50}%)`; // each image is 50% of 200% width
+  }, 4000);
+}
+
+/* ------------------------
+   DOM Ready
+   ------------------------ */
 document.addEventListener('DOMContentLoaded', function () {
-  // existing simple forms used on index/contact older pages
+  // old simple forms on index/contact if present
   handleWhatsAppForm('whatsappForm');
   handleWhatsAppForm('whatsappFormContact');
 
-  // new dual forms
+  // init new functionality
   initDualForms();
-
-  // UI helpers
   initMobileMenu();
   initSmoothScroll();
-
-  // AOS
   initAOS();
-
-  // Hero buttons → open correct form
-const heroShippingBtn = document.getElementById("heroShippingBtn");
-const heroMoversBtn = document.getElementById("heroMoversBtn");
-
-if (heroShippingBtn) {
-  heroShippingBtn.addEventListener("click", function () {
-    document.getElementById("showShipping")?.click();
-  });
-}
-
-if (heroMoversBtn) {
-  heroMoversBtn.addEventListener("click", function () {
-    document.getElementById("showMovers")?.click();
-  });
-}
-
+  initHeroCarousel();
 });
