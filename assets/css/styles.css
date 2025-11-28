@@ -38,3 +38,19 @@
     justify-content: center !important;
   }
 }
+/* hero carousel layout */
+#heroCarousel { 
+  display: flex; 
+  width: 200%; /* two slides */
+  height: 100%;
+  transition: transform 0.7s ease;
+}
+#heroCarousel img { 
+  width: 50%; /* each image occupies half of 200% => 100% viewport */
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* header height constant (update if your header height differs) */
+:root { --header-height: 72px; }
