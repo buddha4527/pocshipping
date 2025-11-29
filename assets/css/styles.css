@@ -54,3 +54,38 @@
 
 /* header height constant (update if your header height differs) */
 :root { --header-height: 72px; }
+
+/* --- FORM STYLE FIXES FOR POC SHIPPING --- */
+
+/* Softer pastel background for the whole form block */
+.form-pastel {
+  background-color: #F8FAFF; /* light pastel blue - not white */
+  /* options you can use:
+     #F7F7FF (pastel violet)
+     #F9FAF5 (pastel green)
+     #FAF6F0 (pastel beige)
+  */
+}
+
+/* Make form container narrower */
+.form-width-sm {
+  max-width: 650px;   /* previously full width */
+  margin: 0 auto;     /* center it */
+}
+
+/* Inputs more compact + premium look */
+.form-input {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0; /* soft border */
+}
+
+.form-input:focus {
+  border-color: #FF7A00;  /* your brand color */
+  box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.2);
+}
+
+.form-title {
+  color: #0A1A2F;
+}
