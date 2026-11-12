@@ -2,126 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Contact - POC Shipping</title>
-
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Custom Tailwind Configuration -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              dark: '#0A1A2F',
-              accent: '#FF7A00',
-            }
-          },
-          fontFamily: {
-            sans: ['Poppins', 'Inter', 'Arial', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./assets/css/styles.css">
-
-  <style>
-    body { font-family: 'Poppins', Inter, Arial, sans-serif; }
-    .nav-bg { background: #0A1A2F; }
-    .sticky-header { position: sticky; top: 0; z-index: 50; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact POC Shipping | Container Shipping Dubai</title>
+  <meta name="description" content="Contact POC Shipping in Dubai for FCL &amp; LCL container shipping quotes. WhatsApp, email or use our quote form.">
+  <link rel="canonical" href="https://pocshipping.com/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="POC Shipping">
+  <meta property="og:title" content="Contact POC Shipping | Container Shipping Dubai">
+  <meta property="og:description" content="Contact POC Shipping in Dubai for FCL &amp; LCL container shipping quotes. WhatsApp, email or use our quote form.">
+  <meta property="og:url" content="https://pocshipping.com/contact.html">
+  <meta property="og:image" content="https://pocshipping.com/assets/img/hero-ship-1920.webp">
+  <meta name="theme-color" content="#0A1A2F">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "POC Shipping", "description": "Container shipping (FCL & LCL) from UAE / Jebel Ali to Africa, Europe and worldwide.", "url": "https://pocshipping.com/", "email": "sales@pocshipping.com", "telephone": "+919400776671", "foundingDate": "2012", "image": "https://pocshipping.com/assets/img/hero-ship-1920.webp", "address": {"@type": "PostalAddress", "streetAddress": "Office No. 304, Al Murar", "addressLocality": "Dubai", "addressCountry": "AE"}, "areaServed": ["United Arab Emirates", "Africa", "Europe"]}</script>
 </head>
-<body class="bg-gray-50">
-
-  <!-- Header/Nav (same as index.html) -->
-  <header class="sticky-header nav-bg shadow-md">
-  <nav class="container mx-auto flex items-center justify-between py-4 px-4 relative">
-    <a href="index.html" class="text-white font-bold text-xl tracking-wide">POC Shipping</a>
-    
-    <!-- Hamburger menu button (only visible on mobile) -->
-    <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none text-2xl">
-      &#9776;
-    </button>
-    
-    <!-- Navigation Links -->
-    <ul id="nav-menu" class="hidden md:flex gap-6 text-white font-semibold text-md absolute md:static bg-[#0A1A2F] md:bg-transparent top-[60px] left-0 w-full md:w-auto flex-col md:flex-row items-center z-40 rounded-b-lg shadow-lg md:shadow-none">
-      <li><a href="index.html" class="hover:text-orange-500 transition block px-4 py-3 md:py-0">Home</a></li>
-      <li><a href="about.html" class="hover:text-orange-500 transition block px-4 py-3 md:py-0">About</a></li>
-      <li><a href="services.html" class="hover:text-orange-500 transition block px-4 py-3 md:py-0">Services</a></li>
-      <li><a href="faq.html" class="hover:text-orange-500 transition block px-4 py-3 md:py-0">FAQ</a></li>
-      <li><a href="contact.html" class="hover:text-orange-500 transition block px-4 py-3 md:py-0">Contact</a></li>
-    </ul>
+<body>
+<header class="site-header">
+  <nav class="container nav" aria-label="Main">
+    <a class="logo" href="index.html"><span class="logo-mark"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="7" width="18" height="11" rx="1"/><path d="M7.5 10v5M12 10v5M16.5 10v5"/></svg></span><span>POC Shipping<small>Container Freight · Dubai</small></span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
+    <ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="routes.html">Routes</a></li><li><a href="about.html">About</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html" aria-current="page">Contact</a></li><li><a class="btn btn-primary" href="quote.html">Get a Quote</a></li></ul>
   </nav>
 </header>
+<main>
 
-  <!-- Contact Information -->
-  <section class="container mx-auto py-16 px-4">
-    <div class="bg-white rounded-lg shadow p-8 mb-12 flex flex-col md:flex-row items-center gap-8">
-      <img src="./assets/img/placeholder2.jpg" alt="POC Office Dubai" class="w-40 h-40 rounded-lg object-cover mb-5 md:mb-0">
+<section class="hero page-hero" style="background:var(--navy)">
+  <div class="container"><span class="eyebrow">Contact</span><h1>Talk to us</h1><p class="lead">For a quote, use the form below. For anything else, reach us on WhatsApp or email.</p></div>
+</section>
+<section class="section">
+  <div class="container grid grid-2" style="align-items:start">
+    <div class="card reveal">
+      <ul class="contact-list">
+        <li><span class="icon" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.8 7L3 21l2-6A8 8 0 1 1 21 12z"/></svg></span><div><strong>WhatsApp</strong><a data-wa href="#">+91 94007 76671</a></div></li>
+        <li><span class="icon" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><strong>Email</strong><a href="mailto:sales@pocshipping.com">sales@pocshipping.com</a></div></li>
+        <li><span class="icon" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><div><strong>Office</strong>Office No. 304, Al Murar, Dubai, UAE</div></li>
+        <li><span class="icon" style="margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><strong>Working hours</strong>Mon–Sat, 9:00–18:00 (UAE time)</div></li>
+      </ul>
+    </div>
+    <div class="reveal">
+      <a class="btn btn-whatsapp btn-block" data-wa href="#" style="margin-bottom:12px">Chat on WhatsApp</a>
+      <a class="btn btn-ghost btn-block" href="mailto:sales@pocshipping.com">Send an email</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark" id="quote">
+  <div class="container quote-wrap">
+    <div class="quote-side reveal">
+      <span class="eyebrow">Free quote</span>
+      <h2>Get a competitive container quote</h2>
+      <p style="color:#c6d3e2">Tell us what you're shipping. We compare rates across our carrier network and send you a clear, itemised quote — usually within a few hours on working days.</p>
+      <ul>
+        <li>Rates compared across multiple shipping lines</li>
+        <li>Itemised: ocean freight, local charges, documentation</li>
+        <li>FCL and LCL from Jebel Ali and other UAE ports</li>
+        <li>One point of contact from booking to arrival</li>
+      </ul>
+      <p style="color:#c6d3e2">Prefer to chat? <a style="color:#fff" data-wa href="#">Message us on WhatsApp</a> or email <a style="color:#fff" href="mailto:sales@pocshipping.com">sales@pocshipping.com</a>.</p>
+    </div>
+    <div class="reveal">
+<form class="quote-form" id="quoteForm" novalidate>
+  <h3>Request a container quote</h3>
+  <p class="form-sub">Takes about 1 minute. We reply with a clear, itemised price.</p>
+
+  <div class="fieldset-title">Shipment</div>
+  <div class="field">
+    <label>Shipment type <span class="req">*</span></label>
+    <div class="seg" role="radiogroup">
+      <label><input type="radio" name="shipment_type" value="FCL" checked><span>FCL — Full container</span></label>
+      <label><input type="radio" name="shipment_type" value="LCL"><span>LCL — Shared container</span></label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="field"><label for="origin">From (port / city) <span class="req">*</span></label><input id="origin" name="origin" value="Jebel Ali, UAE" required></div>
+    <div class="field"><label for="destination">To (port / city, country) <span class="req">*</span></label><input id="destination" name="destination" placeholder="e.g. Mombasa, Kenya" required></div>
+  </div>
+  <div id="fclFields" class="form-row">
+    <div class="field"><label for="container_type">Container type <span class="req">*</span></label>
+      <select id="container_type" name="container_type" data-req><option>20ft Standard</option><option>40ft Standard</option><option>40ft High Cube</option><option>20ft Reefer</option><option>40ft Reefer</option><option>Open Top</option><option>Flat Rack</option><option>Not sure</option></select></div>
+    <div class="field"><label for="container_qty">No. of containers <span class="req">*</span></label><input id="container_qty" name="container_qty" type="number" min="1" value="1" data-req></div>
+  </div>
+  <div id="lclFields" class="form-row hidden">
+    <div class="field"><label for="packages">No. of packages / pallets <span class="req">*</span></label><input id="packages" name="packages" type="number" min="1" data-req></div>
+    <div class="field"><label for="volume_cbm">Total volume (CBM) <span class="req">*</span></label><input id="volume_cbm" name="volume_cbm" type="number" min="0" step="0.01" placeholder="e.g. 4.5" data-req></div>
+  </div>
+  <div class="form-row">
+    <div class="field"><label for="commodity">Commodity <span class="req">*</span></label><input id="commodity" name="commodity" placeholder="e.g. tiles, electronics, auto parts" required></div>
+    <div class="field"><label for="weight_kg">Total weight (kg)</label><input id="weight_kg" name="weight_kg" type="number" min="0" placeholder="e.g. 18000"></div>
+  </div>
+  <div class="form-row three">
+    <div class="field"><label for="service">Service</label>
+      <select id="service" name="service"><option>Port to port</option><option>Door to port</option><option>Port to door</option><option>Door to door</option><option>Not sure</option></select></div>
+    <div class="field"><label for="hazardous">Hazardous (DG)?</label>
+      <select id="hazardous" name="hazardous"><option>No</option><option>Yes</option><option>Not sure</option></select></div>
+    <div class="field"><label for="ready_date">Cargo ready date</label><input id="ready_date" name="ready_date" type="date"></div>
+  </div>
+
+  <div class="fieldset-title">Your details</div>
+  <div class="form-row">
+    <div class="field"><label for="name">Full name <span class="req">*</span></label><input id="name" name="name" autocomplete="name" required></div>
+    <div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization"></div>
+  </div>
+  <div class="form-row">
+    <div class="field"><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" required></div>
+    <div class="field"><label for="phone">Phone / WhatsApp <span class="req">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+971 …" required></div>
+  </div>
+  <div class="field"><label for="notes">Anything else?</label><textarea id="notes" name="notes" rows="3" placeholder="Special requirements, Incoterm, target price, etc."></textarea></div>
+  <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+  <div class="form-actions">
+    <button class="btn btn-primary btn-block" type="submit">Get my quote</button>
+  </div>
+  <div id="formStatus" class="form-status hidden" role="status" aria-live="polite"></div>
+  <p class="privacy">We only use your details to prepare your quote.</p>
+</form></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
       <div>
-        <h2 class="text-2xl font-bold mb-4 text-[#0A1A2F]">Get in Touch</h2>
-        <p class="font-semibold mb-2">
-          <span class="text-[#FF7A00]">WhatsApp:</span>
-          <a href="https://wa.me/919400776671" class="underline" target="_blank">+919400776671</a>
-        </p>
-        <p class="mb-2">
-          <span class="font-semibold text-[#FF7A00]">Email:</span>
-          <a href="mailto:sales@pocshipping.com" class="underline">sales@pocshipping.com</a>
-        </p>
-        <p class="mb-2">
-          <span class="font-semibold text-[#FF7A00]">Address:</span>
-          Office No. 304, Al Murar, Dubai, UAE
-        </p>
-        <a href="https://wa.me/919400776671?text=Hi%20POC%20Shipping,%20I%20have%20a%20question." target="_blank"
-           class="mt-4 inline-block bg-[#FF7A00] text-white px-5 py-2 rounded font-semibold shadow hover:bg-[#e86c00] transition">
-          WhatsApp Us
-        </a>
+        <a class="logo" href="index.html"><span class="logo-mark"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="7" width="18" height="11" rx="1"/><path d="M7.5 10v5M12 10v5M16.5 10v5"/></svg></span><span>POC Shipping</span></a>
+        <p style="margin-top:14px">Your point of contact for FCL &amp; LCL container shipping from the UAE to Africa, Europe and worldwide. Since 2012.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#fcl">FCL — Full container</a></li>
+          <li><a href="services.html#lcl">LCL — Shared container</a></li>
+          <li><a href="services.html#reefer">Reefer containers</a></li>
+          <li><a href="services.html#docs">Documentation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Popular routes</h4>
+        <ul>
+          <li><a href="routes/jebel-ali-to-mombasa.html">Jebel Ali → Mombasa</a></li><li><a href="routes/jebel-ali-to-dar-es-salaam.html">Jebel Ali → Dar es Salaam</a></li><li><a href="routes/jebel-ali-to-djibouti.html">Jebel Ali → Djibouti</a></li><li><a href="routes/jebel-ali-to-lagos.html">Jebel Ali → Lagos</a></li><li><a href="routes/jebel-ali-to-tema.html">Jebel Ali → Tema</a></li>
+          <li><a href="routes.html">All routes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:sales@pocshipping.com">sales@pocshipping.com</a></li>
+          <li><a data-wa href="#">WhatsApp +91 94007 76671</a></li>
+          <li>Office No. 304, Al Murar, Dubai, UAE</li>
+        </ul>
       </div>
     </div>
-
-    <!-- Contact Form -->
-    <div class="max-w-xl mx-auto bg-white rounded-lg shadow p-8">
-      <h3 class="text-xl font-bold mb-4 text-[#0A1A2F]">Contact Form</h3>
-      <form id="whatsappFormContact" class="flex flex-col gap-3" autocomplete="off">
-        <input type="text" name="name" placeholder="Name" class="border p-2 rounded" required>
-        <input type="text" name="whatsapp" placeholder="WhatsApp Number" class="border p-2 rounded" required>
-        <input type="text" name="pickup" placeholder="Pickup Location" class="border p-2 rounded" required>
-        <input type="text" name="delivery" placeholder="Delivery Location" class="border p-2 rounded" required>
-        <input type="number" name="weight" placeholder="Weight (Kg)" class="border p-2 rounded" min="1" required>
-        <textarea name="item" rows="3" placeholder="Shipment Description" class="border p-2 rounded" required></textarea>
-        <button type="submit"
-          class="bg-[#FF7A00] text-white py-3 rounded font-semibold shadow hover:bg-[#e86c00] transition">
-          Submit &amp; Send via WhatsApp
-        </button>
-      </form>
-      <p class="text-sm mt-2 text-gray-500">Quick WhatsApp submission to <b>+971 503469650</b></p>
+    <div class="footer-bottom">
+      <span>© 2012–<span data-year></span> POC Shipping. All rights reserved.</span>
+      <span>Container shipping from UAE · Jebel Ali · Dubai</span>
     </div>
-  </section>
-
-  <!-- Footer (same as index.html) -->
-  <footer class="bg-[#0A1A2F] text-white mt-16 py-6">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-      <div class="mb-4 md:mb-0">
-        <span class="font-bold">POC Shipping</span> &mdash; Copyright &copy; 2012-2025
-      </div>
-      <div class="flex gap-4 items-center">
-        <a href="mailto:sales@pocshipping.com"><img src="./assets/img/email-icon.svg" alt="Email" class="w-5 h-5"></a>
-        <a href="https://wa.me/919400776671" target="_blank"><img src="./assets/img/whatsapp-icon.svg" alt="WhatsApp" class="w-5 h-5"></a>
-        <a href="#"><img src="./assets/img/instagram-icon.svg" alt="Instagram" class="w-5 h-5"></a>
-        <a href="#"><img src="./assets/img/facebook-icon.svg" alt="Facebook" class="w-5 h-5"></a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- WhatsApp form script -->
-  <script src="./assets/js/script.js"></script>
+  </div>
+</footer>
+<a class="wa-float" data-wa href="#" aria-label="Chat on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4a10.4 10.4 0 0 1-1.6-5.6C5.2 10 10 5.3 16 5.3S26.8 10 26.8 15.8 22 26.4 16 26.4zm5.9-7.8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.7c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.8 5.1 2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg></a>
+<script src="assets/js/script.js"></script>
 </body>
 </html>
